@@ -1,3 +1,5 @@
+
+
 exports.config = {
     //
     // ====================
@@ -5,7 +7,7 @@ exports.config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    port: 4723,
+    port: 4724,
     //
     // ==================
     // Specify Test Files
@@ -53,11 +55,15 @@ exports.config = {
     //
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
+    'appium:platformName': 'Android',
+    'appium:automationName': 'UIAutomator2',
+    'appium:deviceName':'Pixel 3',
+    'appium:platformVersion': '11.0',
+    "appium:app": 
+    '/Users/testvagrant/Desktop/checkreport/app/android/ApiDemos-debug.apk',
+    'appium:autoGrantPermissions':true,
+    'appium:newCommandTimeout': 240,
+    'appium:fullReset': true,
     }],
 
     //
@@ -130,7 +136,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','dot',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
